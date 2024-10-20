@@ -25,7 +25,7 @@ source = "陈思维"
 source = "foo"
 for i in source:
     num = ord(i)
-    print(bin(num).replace('b',''))
+    print(bin(num).replace("b", ""))
     # 01100110
     # 01101111
     # 01101111
@@ -39,7 +39,7 @@ print()
 
 # getbit(name, offset)
 # 获取name对应的值的二进制表示中的某位的值 （0或1）
-print(r.getbit("foo", 0)) # 0 foo1 对应的二进制 4个字节 32位 第0位是0还是1
+print(r.getbit("foo", 0))  # 0 foo1 对应的二进制 4个字节 32位 第0位是0还是1
 # 0
 print()
 
@@ -52,7 +52,7 @@ print()
 #     end - 字节结束位置
 print(r.get("foo"))
 # goo1: 01100111
-print(r.bitcount("foo",0,1))  # 11 表示前2个字节中，1出现的个数
+print(r.bitcount("foo", 0, 1))  # 11 表示前2个字节中，1出现的个数
 # 11
 print()
 
@@ -64,13 +64,13 @@ print()
 #     dest - 新的Redis的name
 #     *keys - 要查找的Redis的name
 
-r.set("foo","1")  # 0110001
-r.set("foo1","2")  # 0110010
+r.set("foo", "1")  # 0110001
+r.set("foo1", "2")  # 0110010
 print(r.mget("foo", "foo1"))
 # ['1', '2']
-print(r.bitop("AND","new","foo","foo1"))
+print(r.bitop("AND", "new", "foo", "foo1"))
 # 1
-print(r.mget("foo","foo1","new"))
+print(r.mget("foo", "foo1", "new"))
 # ['1', '2', '0']
 print()
 
@@ -81,6 +81,6 @@ print(num)  # 打印每个字母字符或者汉字字符对应的ascii码值 f-1
 # 50
 print(bin(num))  # 打印每个10进制ascii码值转换成二进制的值 0b1100110（0b表示二进制）
 # 0b110010
-print(bin(num).replace('b',''))  # 将二进制0b1100110替换成01100110
+print(bin(num).replace("b", ""))  # 将二进制0b1100110替换成01100110
 # 0110010
 print()

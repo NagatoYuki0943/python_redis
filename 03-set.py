@@ -59,10 +59,10 @@ print()
 # 参数：
 #     time - 过期时间（数字秒 或 timedelta对象）
 r.setex("food", 5, "noodle")
-print(r.get('food'))
+print(r.get("food"))
 # noodle
 time.sleep(5)
-print(r.get('food'))
+print(r.get("food"))
 # None
 print()
 
@@ -72,18 +72,18 @@ print()
 # 参数：
 #     time_ms - 过期时间（数字毫秒 或 timedelta对象）
 r.psetex("food", 3, "noodle")
-print(r.get('food'))
+print(r.get("food"))
 # noodle
 time.sleep(0.003)
-print(r.get('food'))
+print(r.get("food"))
 # None
 print()
 
 
 # 7.setnx(name, value)
 # 设置值，只有name不存在时，执行设置操作（添加）
-print(r.setnx('hobby', 'basketball'))
+print(r.setnx("hobby", "basketball"))
 # hobby 不存在，输出为 True
-print(r.setnx('hobby', 'tennis'))
+print(r.setnx("hobby", "tennis"))
 # hobby 存在，输出为 False
 print()

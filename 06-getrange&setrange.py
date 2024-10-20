@@ -15,15 +15,19 @@ r = redis.Redis(connection_pool=pool)
 # 如： "君惜大大" ，0-3表示 "君"
 
 
-r.set("cn_name", "君惜大大") # 汉字
-print(r.getrange("cn_name", 0, 2))   # 取索引号是0-2 前3位的字节 君 切片操作 （一个汉字3个字节 1个字母一个字节 每个字节8bit）
+r.set("cn_name", "君惜大大")  # 汉字
+print(
+    r.getrange("cn_name", 0, 2)
+)  # 取索引号是0-2 前3位的字节 君 切片操作 （一个汉字3个字节 1个字母一个字节 每个字节8bit）
 # 君
 print(r.getrange("cn_name", 0, -1))  # 取所有的字节 君惜大大 切片操作
 # 君惜大大
 
-r.set("en_name","junxi") # 字母
-print(r.getrange("en_name", 0, 2))  # 取索引号是0-2 前3位的字节 jun 切片操作 （一个汉字3个字节 1个字母一个字节 每个字节8bit）
-print(r.getrange("en_name", 0, -1)) # 取所有的字节 junxi 切片操作
+r.set("en_name", "junxi")  # 字母
+print(
+    r.getrange("en_name", 0, 2)
+)  # 取索引号是0-2 前3位的字节 jun 切片操作 （一个汉字3个字节 1个字母一个字节 每个字节8bit）
+print(r.getrange("en_name", 0, -1))  # 取所有的字节 junxi 切片操作
 # jun
 # junxi
 
@@ -35,5 +39,5 @@ print(r.getrange("en_name", 0, -1)) # 取所有的字节 junxi 切片操作
 #     value - 要设置的值
 
 r.setrange("en_name", 1, "ccc")
-print(r.get("en_name"))    # jccci 原始值是junxi 从索引号是1开始替换成ccc 变成 jccci
+print(r.get("en_name"))  # jccci 原始值是junxi 从索引号是1开始替换成ccc 变成 jccci
 # jccci
